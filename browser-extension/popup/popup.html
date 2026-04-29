@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>yt-dlp Web</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <span class="logo">▶ yt-dlp Web</span>
+    </header>
+
+    <main>
+      <!-- Loading state -->
+      <div id="state-loading" class="state-panel">
+        <div class="spinner"></div>
+        <p>Extracting formats…</p>
+      </div>
+
+      <!-- Unsupported / no video found -->
+      <div id="state-unsupported" class="state-panel hidden">
+        <p class="state-icon">📭</p>
+        <p class="state-title">No video detected</p>
+        <p class="state-hint">Navigate to a YouTube or Vimeo video page.</p>
+      </div>
+
+      <!-- Video found -->
+      <div id="state-video" class="hidden">
+        <div id="video-header">
+          <img id="video-thumb" src="" alt="" class="hidden">
+          <div id="video-meta">
+            <p id="video-title"></p>
+            <p id="video-author"></p>
+          </div>
+        </div>
+
+        <div id="format-section">
+          <div class="tab-bar" id="tab-bar">
+            <button class="tab active" data-tab="combined">Combined</button>
+            <button class="tab"        data-tab="video">Video only</button>
+            <button class="tab"        data-tab="audio">Audio only</button>
+          </div>
+          <div id="format-list"></div>
+        </div>
+
+        <p id="throttle-notice" class="notice hidden">
+          ⚠ N-parameter could not be solved – downloads may be throttled.
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
