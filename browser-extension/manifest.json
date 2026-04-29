@@ -1,13 +1,14 @@
 {
   "manifest_version": 3,
   "name": "yt-dlp Web",
-  "version": "0.1.0",
-  "description": "Download videos directly from your browser – powered by yt-dlp",
+  "version": "0.2.0",
+  "description": "Download and cache videos directly from your browser – powered by yt-dlp",
 
   "permissions": [
     "downloads",
     "storage",
-    "scripting"
+    "scripting",
+    "offscreen"
   ],
 
   "host_permissions": [
@@ -17,6 +18,10 @@
     "https://*.googlevideo.com/*",
     "https://*.ytimg.com/*"
   ],
+
+  "externally_connectable": {
+    "matches": ["<all_urls>"]
+  },
 
   "background": {
     "service_worker": "background/service-worker.js",
